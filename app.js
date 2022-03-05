@@ -25,16 +25,18 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.get('*', (req, res) => {
+  res.send('ddsfsdfs')
+})
+// app.use('/', index);
 
-app.use('/', index);
 
 
-
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
+// app.use(function(req, res, next) {
+//   var err = new Error('Not Found');
+//   err.status = 404;
+//   next(err);
+// });
 
 // app.use(function(err, req, res, next) {
 //   res.locals.message = err.message;
@@ -46,7 +48,7 @@ app.use(function(req, res, next) {
 // });
 
 
-server.listen(3000, function(err) {
+server.listen(80, function(err) {
   if(err){
      console.log(err);
      } else {
