@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 
 var app = express();
+var server = require('http').Server(app)
 
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -45,7 +46,7 @@ app.use(function(req, res, next) {
 // });
 
 
-app.listen(3000, function(err) {
+server.listen(3000, function(err) {
   if(err){
      console.log(err);
      } else {
